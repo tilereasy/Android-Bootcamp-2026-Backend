@@ -1,4 +1,4 @@
-package org.example.api.dto;
+package ru.sicampus.bootcamp2026.api.dto;
 
 import java.time.OffsetDateTime;
 

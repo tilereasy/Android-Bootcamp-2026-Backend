@@ -1,15 +1,15 @@
-package org.example.service;
+package ru.sicampus.bootcamp2026.service;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
-import org.example.api.dto.MeetingRequest;
-import org.example.api.error.BadRequestException;
-import org.example.api.error.NotFoundException;
-import org.example.domain.Meeting;
-import org.example.domain.User;
-import org.example.repository.MeetingRepository;
-import org.example.repository.UserRepository;
+import ru.sicampus.bootcamp2026.api.dto.MeetingRequest;
+import ru.sicampus.bootcamp2026.api.error.BadRequestException;
+import ru.sicampus.bootcamp2026.api.error.NotFoundException;
+import ru.sicampus.bootcamp2026.domain.Meeting;
+import ru.sicampus.bootcamp2026.domain.User;
+import ru.sicampus.bootcamp2026.repository.MeetingRepository;
+import ru.sicampus.bootcamp2026.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service

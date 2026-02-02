@@ -1,6 +1,6 @@
-package org.example.repository;
+package ru.sicampus.bootcamp2026.repository;
 
-import org.example.domain.Meeting;
+import ru.sicampus.bootcamp2026.domain.Meeting;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MeetingRepository extends JpaRepository<Meeting, Long> {

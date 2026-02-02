@@ -1,8 +1,8 @@
-package org.example.api.dto;
+package ru.sicampus.bootcamp2026.api.dto;
 
 import jakarta.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
-import org.example.domain.InvitationStatus;
+import ru.sicampus.bootcamp2026.domain.InvitationStatus;
 
 public record InvitationRequest(
     @NotNull Long meetingId,

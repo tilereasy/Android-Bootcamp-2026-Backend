@@ -1,4 +1,4 @@
-package org.example.api.dto;
+package ru.sicampus.bootcamp2026.api.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

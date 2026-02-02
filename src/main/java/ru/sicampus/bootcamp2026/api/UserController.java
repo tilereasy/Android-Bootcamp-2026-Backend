@@ -1,11 +1,11 @@
-package org.example.api;
+package ru.sicampus.bootcamp2026.api;
 
 import jakarta.validation.Valid;
 import java.util.List;
-import org.example.api.dto.UserRequest;
-import org.example.api.dto.UserResponse;
-import org.example.domain.User;
-import org.example.service.UserService;
+import ru.sicampus.bootcamp2026.api.dto.UserRequest;
+import ru.sicampus.bootcamp2026.api.dto.UserResponse;
+import ru.sicampus.bootcamp2026.domain.User;
+import ru.sicampus.bootcamp2026.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

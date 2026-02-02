@@ -1,4 +1,4 @@
-package org.example.api.error;
+package ru.sicampus.bootcamp2026.api.error;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.OffsetDateTime;

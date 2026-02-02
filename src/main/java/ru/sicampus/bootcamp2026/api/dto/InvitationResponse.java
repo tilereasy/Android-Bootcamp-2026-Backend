@@ -1,7 +1,7 @@
-package org.example.api.dto;
+package ru.sicampus.bootcamp2026.api.dto;
 
 import java.time.OffsetDateTime;
-import org.example.domain.InvitationStatus;
+import ru.sicampus.bootcamp2026.domain.InvitationStatus;
 
 public record InvitationResponse(
     Long id,

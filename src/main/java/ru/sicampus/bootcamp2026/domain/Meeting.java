@@ -1,4 +1,4 @@
-package org.example.domain;
+package ru.sicampus.bootcamp2026.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

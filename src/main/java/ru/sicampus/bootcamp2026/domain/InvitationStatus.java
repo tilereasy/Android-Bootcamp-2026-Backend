@@ -1,4 +1,4 @@
-package org.example.domain;
+package ru.sicampus.bootcamp2026.domain;
 
 public enum InvitationStatus {
     PENDING,
