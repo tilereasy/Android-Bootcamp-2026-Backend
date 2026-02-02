@@ -1,0 +1,4 @@
+id,email,password_hash,full_name,department,position,created_at
+1,kira_yoshikage@example.com,hash_kira,Кира Йошикаге,джоджо,стэндюзер,2026-01-10T09:00:00+00:00
+2,mafia@example.com,hash_mafia,Зубенко Михаил Петрович,Отдел сваги и просмотра тиктоков,52,2026-01-11T10:15:00+00:00
+3,skebob@example.com,hash_carol,Скебоб,Скебоб,Скебоб,2026-01-12T11:30:00+00:00
