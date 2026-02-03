@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 001-create-invitation-status-enum
-      author: codex
+      author: t1ler
       changes:
         - sql:
             splitStatements: false
@@ -20,7 +20,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 002-create-users-table
-      author: codex
+      author: t1ler
       changes:
         - createTable:
             tableName: users
@@ -61,7 +61,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 003-create-meetings-table
-      author: codex
+      author: t1ler
       changes:
         - createTable:
             tableName: meetings
@@ -105,7 +105,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 004-create-invitations-table
-      author: codex
+      author: t1ler
       changes:
         - createTable:
             tableName: invitations
@@ -145,7 +145,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 005-add-meetings-indexes
-      author: codex
+      author: t1ler
       changes:
         - createIndex:
             tableName: meetings
@@ -174,7 +174,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 006-add-invitations-indexes
-      author: codex
+      author: t1ler
       changes:
         - createIndex:
             tableName: invitations
@@ -195,7 +195,7 @@ databaseChangeLog:
 
   - changeSet:
       id: 007-add-foreign-keys
-      author: codex
+      author: t1ler
       changes:
         - addForeignKeyConstraint:
             baseTableName: meetings

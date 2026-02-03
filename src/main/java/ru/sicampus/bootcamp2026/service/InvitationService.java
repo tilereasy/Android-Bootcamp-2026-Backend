@@ -8,26 +8,26 @@ import ru.sicampus.bootcamp2026.api.error.NotFoundException;
 import ru.sicampus.bootcamp2026.domain.Invitation;
 import ru.sicampus.bootcamp2026.domain.InvitationStatus;
 import ru.sicampus.bootcamp2026.domain.Meeting;
-import ru.sicampus.bootcamp2026.domain.User;
+import ru.sicampus.bootcamp2026.domain.Person;
 import ru.sicampus.bootcamp2026.repository.InvitationRepository;
 import ru.sicampus.bootcamp2026.repository.MeetingRepository;
-import ru.sicampus.bootcamp2026.repository.UserRepository;
+import ru.sicampus.bootcamp2026.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class InvitationService {
     private final InvitationRepository invitationRepository;
     private final MeetingRepository meetingRepository;
-    private final UserRepository userRepository;
+    private final PersonRepository personRepository;
 
     public InvitationService(
         InvitationRepository invitationRepository,
         MeetingRepository meetingRepository,
-        UserRepository userRepository
+        PersonRepository personRepository
     ) {
         this.invitationRepository = invitationRepository;
         this.meetingRepository = meetingRepository;
-        this.userRepository = userRepository;
+        this.personRepository = personRepository;
     }
 
     public List<Invitation> list() {
@@ -62,8 +62,8 @@ public class InvitationService {
     private void apply(Invitation invitation, InvitationRequest request) {
         Meeting meeting = meetingRepository.findById(request.meetingId())
             .orElseThrow(() -> new NotFoundException("Meeting not found: " + request.meetingId()));
-        User invitee = userRepository.findById(request.inviteeId())
-            .orElseThrow(() -> new NotFoundException("User not found: " + request.inviteeId()));
+        Person invitee = personRepository.findById(request.inviteeId())
+            .orElseThrow(() -> new NotFoundException("Person not found: " + request.inviteeId()));
         invitation.setMeeting(meeting);
         invitation.setInvitee(invitee);
         invitation.setStatus(request.status() == null ? InvitationStatus.PENDING : request.status());

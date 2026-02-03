@@ -1,14 +1,16 @@
 package ru.sicampus.bootcamp2026.api.dto;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
-public record UserResponse(
+public record PersonResponse(
     Long id,
     String email,
-    String passwordHash,
     String fullName,
     String department,
     String position,
-    OffsetDateTime createdAt
+    OffsetDateTime createdAt,
+    List<String> authorities
 ) {
 }
+

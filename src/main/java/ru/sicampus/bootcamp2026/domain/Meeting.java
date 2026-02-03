@@ -28,7 +28,7 @@ public class Meeting {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "organizer_id", nullable = false)
-    private User organizer;
+    private Person organizer;
 
     @Column(name = "title", nullable = false, length = 255)
     private String title;
@@ -53,11 +53,11 @@ public class Meeting {
         this.id = id;
     }
 
-    public User getOrganizer() {
+    public Person getOrganizer() {
         return organizer;
     }
 
-    public void setOrganizer(User organizer) {
+    public void setOrganizer(Person organizer) {
         this.organizer = organizer;
     }
 

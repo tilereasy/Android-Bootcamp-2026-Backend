@@ -36,7 +36,7 @@ public class Invitation {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "invitee_id", nullable = false)
-    private User invitee;
+    private Person invitee;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
@@ -64,11 +64,11 @@ public class Invitation {
         this.meeting = meeting;
     }
 
-    public User getInvitee() {
+    public Person getInvitee() {
         return invitee;
     }
 
-    public void setInvitee(User invitee) {
+    public void setInvitee(Person invitee) {
         this.invitee = invitee;
     }
 

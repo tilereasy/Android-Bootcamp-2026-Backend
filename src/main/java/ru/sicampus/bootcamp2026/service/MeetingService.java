@@ -7,19 +7,19 @@ import ru.sicampus.bootcamp2026.api.dto.MeetingRequest;
 import ru.sicampus.bootcamp2026.api.error.BadRequestException;
 import ru.sicampus.bootcamp2026.api.error.NotFoundException;
 import ru.sicampus.bootcamp2026.domain.Meeting;
-import ru.sicampus.bootcamp2026.domain.User;
+import ru.sicampus.bootcamp2026.domain.Person;
 import ru.sicampus.bootcamp2026.repository.MeetingRepository;
-import ru.sicampus.bootcamp2026.repository.UserRepository;
+import ru.sicampus.bootcamp2026.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MeetingService {
     private final MeetingRepository meetingRepository;
-    private final UserRepository userRepository;
+    private final PersonRepository personRepository;
 
-    public MeetingService(MeetingRepository meetingRepository, UserRepository userRepository) {
+    public MeetingService(MeetingRepository meetingRepository, PersonRepository personRepository) {
         this.meetingRepository = meetingRepository;
-        this.userRepository = userRepository;
+        this.personRepository = personRepository;
     }
 
     public List<Meeting> list() {
@@ -55,7 +55,7 @@ public class MeetingService {
         if (request.endAt().isBefore(request.startAt())) {
             throw new BadRequestException("endAt must be after startAt");
         }
-        User organizer = userRepository.findById(request.organizerId())
+        Person organizer = personRepository.findById(request.organizerId())
             .orElseThrow(() -> new NotFoundException("Organizer not found: " + request.organizerId()));
         meeting.setOrganizer(organizer);
         meeting.setTitle(request.title());
