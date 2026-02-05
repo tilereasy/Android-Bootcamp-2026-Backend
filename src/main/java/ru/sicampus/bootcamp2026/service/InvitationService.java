@@ -2,7 +2,6 @@ package ru.sicampus.bootcamp2026.service;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import java.util.List;
 import ru.sicampus.bootcamp2026.api.dto.InvitationRequest;
 import ru.sicampus.bootcamp2026.api.error.NotFoundException;
 import ru.sicampus.bootcamp2026.domain.Invitation;
@@ -12,6 +11,8 @@ import ru.sicampus.bootcamp2026.domain.Person;
 import ru.sicampus.bootcamp2026.repository.InvitationRepository;
 import ru.sicampus.bootcamp2026.repository.MeetingRepository;
 import ru.sicampus.bootcamp2026.repository.PersonRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,8 +31,8 @@ public class InvitationService {
         this.personRepository = personRepository;
     }
 
-    public List<Invitation> list() {
-        return invitationRepository.findAll();
+    public Page<Invitation> list(Pageable pageable) {
+        return invitationRepository.findAll(pageable);
     }
 
     public Invitation get(Long id) {
