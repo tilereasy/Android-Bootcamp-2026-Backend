@@ -35,14 +35,15 @@ public class MeetingService {
         return meetingRepository.findAll(pageable);
     }
 
-    public List<Meeting> listForUserDay(Long personId, LocalDate date) {
+    public Page<Meeting> listForUserDay(Long personId, LocalDate date, Pageable pageable) {
         OffsetDateTime start = date.atStartOfDay().atOffset(ZoneOffset.UTC);
         OffsetDateTime end = start.plusDays(1);
         return meetingRepository.findUserMeetingsForDay(
             personId,
             start,
             end,
-            InvitationStatus.ACCEPTED
+            InvitationStatus.ACCEPTED,
+            pageable
         );
     }
 

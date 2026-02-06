@@ -46,13 +46,15 @@ public class MeetingController {
     }
 
     @GetMapping("/my/day")
-    public List<MeetingResponse> myDay(
+    public Page<MeetingResponse> myDay(
         @AuthenticationPrincipal Person person,
-        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "20") int size
     ) {
-        return meetingService.listForUserDay(person.getId(), date).stream()
-            .map(MeetingController::toResponse)
-            .toList();
+        Pageable pageable = PageRequest.of(page, size);
+        return meetingService.listForUserDay(person.getId(), date, pageable)
+            .map(MeetingController::toResponse);
     }
 
     @GetMapping("/my/month")
