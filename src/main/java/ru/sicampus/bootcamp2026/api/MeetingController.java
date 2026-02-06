@@ -65,6 +65,14 @@ public class MeetingController {
         return meetingService.countForUserMonth(person.getId(), month);
     }
 
+    @GetMapping("/my/week")
+    public List<MeetingDayCountResponse> myWeek(
+        @AuthenticationPrincipal Person person,
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate start
+    ) {
+        return meetingService.countForUserWeek(person.getId(), start);
+    }
+
     @GetMapping("/{id}")
     public MeetingResponse get(@PathVariable Long id) {
         return toResponse(meetingService.get(id));

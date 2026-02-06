@@ -67,6 +67,26 @@ public class MeetingService {
         return result;
     }
 
+    public List<MeetingDayCountResponse> countForUserWeek(Long personId, LocalDate startDate) {
+        OffsetDateTime start = startDate.atStartOfDay().atOffset(ZoneOffset.UTC);
+        OffsetDateTime end = start.plusDays(7);
+
+        Map<LocalDate, Long> counts = new HashMap<>();
+        for (MeetingRepository.MeetingDayCountProjection row :
+            meetingRepository.countUserMeetingsByDay(personId, start, end)
+        ) {
+            counts.put(row.getDay(), row.getCount());
+        }
+
+        List<MeetingDayCountResponse> result = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            LocalDate date = startDate.plusDays(i);
+            long count = counts.getOrDefault(date, 0L);
+            result.add(new MeetingDayCountResponse(date, count));
+        }
+        return result;
+    }
+
     public Meeting get(Long id) {
         return meetingRepository.findById(id)
             .orElseThrow(() -> new NotFoundException("Meeting not found: " + id));
